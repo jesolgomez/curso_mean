@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Mi primera página</title>
+</head>
+<body>
+	
+</body>
+<script>
+
+	var cadena = "Podemos poner cualquier texto";
+	
+	console.log("Longitud: " + cadena.length);
+	console.log("Mayúsculas: " + cadena.toUpperCase());
+	console.log("Minúsculas: " + cadena.toLowerCase());
+	console.log("Posición 4: " + cadena.charAt(3));
+	console.log("Posición 4: " + cadena[3]);
+	console.log("Index of t: " + cadena.indexOf("t"));
+	console.log("Index of t: " + cadena.lastIndexOf("t"));
+	console.log("Substring 9 , 4: " + cadena.substring(9,4));
+	
+	var arrayCadena = cadena.split(" ");
+	
+	console.log("Palabra 1: " + arrayCadena[1]);
+	
+	var otroArrayCadena = arrayCadena.join("_");
+	console.log("Otra cadena: " + otroArrayCadena);
+	
+</script>
+</html>

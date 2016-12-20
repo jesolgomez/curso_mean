@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Mi primera página</title>
+</head>
+<body>
+	
+</body>
+<script>
+
+var fecha = new Date();
+var otraFecha = fecha;
+
+
+fecha.setFullYear(1989);
+console.log("Año: " + fecha.getFullYear());
+
+function cambiarYear (unaFecha) {
+	unaFecha.setFullYear(2011);
+	console.log("Año: " + fecha.getFullYear());
+};
+
+</script>
+</html>
