@@ -10,9 +10,11 @@
 
 <script>
 	
+	var i, j;
+	
 	function ordenArray (arrayDes) {
-		for (i=1;arrayDes.length;i++) {
-			for (i=1;arrayDes.length-1;i++) {
+		for (j=0;j<arrayDes.length;j++) {
+			for (i=1;i<arrayDes.length;i++) {
 				if (arrayDes[i]<arrayDes[i-1]){
 					var nuevoValor = arrayDes[i];
 					arrayDes[i] = arrayDes[i-1];
@@ -27,7 +29,7 @@
 
 <script>
 
-	console.log(ordenArray([4,2,1,5,3]));
+	console.log(ordenArray([40,20,10,50,30]));
 
 </script>
 
