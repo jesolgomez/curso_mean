@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejemplos objetos</title>
+</head>
+<body>
+	<div id="texto1">texto 1</div>
+	<div id="texto2">texto 2</div>
+</body>
+
+<script>
+
+	var div = document.getElementById ("texto2");
+	
+	var arrayUno = new Array();
+	
+	div.innerHTML += arrayUno + "<br/>";
+	arrayUno[0] = "Elemento 0";
+	arrayUno[1] = "Elemento 1";
+	div.innerHTML += arrayUno + "<br/>";
+	
+	arrayUno["propiedad"] = "Elemento prop";
+	div.innerHTML += arrayUno + "<br/>" + 
+	arrayUno.propiedad +  "<br/>";
+
+</script>
+
+</html>

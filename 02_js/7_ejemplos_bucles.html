@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Mi primera página</title>
+	<title>Método de la burbuja</title>
 </head>
 <body>
 	
@@ -14,7 +14,7 @@
 	
 	function ordenArray (arrayDes) {
 		for (j=0;j<arrayDes.length;j++) {
-			for (i=1;i<arrayDes.length;i++) {
+			for (i=0;i<arrayDes.length-j;i++) {
 				if (arrayDes[i]<arrayDes[i-1]){
 					var nuevoValor = arrayDes[i];
 					arrayDes[i] = arrayDes[i-1];

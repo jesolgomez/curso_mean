@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejemplos mensajes</title>
+</head>
+<body>
+</body>
+
+<script>
+	
+	var i, j;
+	
+	function ordenArray (arrayDes) {
+		for (j=0;j<arrayDes.length;j++) {
+			for (i=0;i<arrayDes.length-j;i++) {
+				if (arrayDes[i]<arrayDes[i-1]){
+					var nuevoValor = arrayDes[i];
+					arrayDes[i] = arrayDes[i-1];
+					arrayDes[i-1] = nuevoValor;
+				}
+			}
+		}
+	return arrayDes;
+	}
+
+</script>
+
+<script>
+
+var num1 = parseInt(prompt("Introduce número 1", "0"));
+var num2 = parseInt(prompt("Introduce número 2", "0"));
+var num3 = parseInt(prompt("Introduce número 3", "0"));
+
+var arrayNum = [num1,num2,num3];
+var arrayOrd = ordenArray(arrayNum);
+
+alert("El número mayor es " + arrayOrd[arrayOrd.length-1]);
+
+</script>
+
+
+<script>
+
+	function dameSigno(numero) {
+		return numero > 0 ? "+" : 
+							numero < 0 ? "-" :
+										 "0";
+	}
+	
+</script>
+
+
+</html>
