@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Calculadora</title>
+	</head>
+	<body>
+		<form name="calc">
+			Operando 1 <input name="operando1" value="0" size="12"
+				maxlength="12" type="text">
+			<br>
+			Operando 2 <input name="operando2" value="0" size="12"
+				maxlength="12" type="text">
+			<br>
+			<input name="" value=" + "
+				onclick="calcula('+')" type="button">
+			<input name="" value=" - "
+				onclick="calcula('-') " type="button">
+			<input name="" value=" * "
+				onclick="calcula(  '*'   )" type="button">
+			<input name="" value=" / "
+				onclick="calcula ('/')" type="button">
+			<br>
+			Resultado <input name="resultado" value="0" size="12" type="text">
+		</form>
+		<div id='texto'>Operaciones realizadas:<br></div>
+	</body>
+<script>	
+	crearCalculadora();
+	
+	function crearCalculadora() {
+		var body = document.getElementsByTagName("body")[0];
+		
+		var formCalc = document.createElement("form");
+		body.appendChild(formCalc);
+		
+		var texto = document.createTextNode("Operando X: ");
+		formCalc.appendChild(texto);
+		
+		var operadorA = document.createElement("input");
+		formCalc.appendChild(operadorA);
+		operadorA.name = "Operador A";
+		operadorA.value = "0";
+		operadorA.setAttribute("size", "12");
+		
+		var operadorB = document.createElement("input");
+		formCalc.appendChild(operadorB);
+
+		var botCalc1 = document.createElement("button");
+		botCalc1.id = "1";
+		var texto = document.createTextNode(" + ");
+		botCalc1.appendChild(texto);
+		formCalc.appendChild(botCalc1);
+		
+		var botCalc2 = document.createElement("button");
+		botCalc2.id = "2";
+		var texto = document.createTextNode(" - ");
+		botCalc2.appendChild(texto);
+		formCalc.appendChild(botCalc2);	
+
+		var botCalc3 = document.createElement("button");
+		botCalc3.id = "3";
+		var texto = document.createTextNode(" * ");
+		botCalc3.appendChild(texto);
+		formCalc.appendChild(botCalc3);	
+
+		var botCalc4 = document.createElement("button");
+		botCalc4.id = "4";
+		var texto = document.createTextNode(" / ");
+		botCalc4.appendChild(texto);
+		formCalc.appendChild(botCalc4);	
+		
+		var texto = document.createTextNode("Resultado: ");
+		formCalc.appendChild(texto);
+		
+		var result = document.createElement("input");
+		formCalc.appendChild(result);
+		result.value = "0";
+		
+		var reply_click = function(){
+			alert("Button clicked, id " + this.id + ", text" + this.innerHTML);
+			result.value = operadorA.value + this.innerHTML + operadorB.value;
+		}
+		document.getElementById("1").onclick = reply_click;
+		document.getElementById("2").onclick = reply_click;
+		document.getElementById("3").onclick = reply_click;
+		document.getElementById("4").onclick = reply_click;		
+
+	}
+	
+	function calcula (operando) {
+		var oper_1 = document.calc.operando1.value;
+		var oper_2 = document.calc.operando2.value;
+		
+		var result = eval (oper_1 + operando + oper_2);
+		
+		document.getElementById("texto").innerHTML += ("<br>" + oper_1 + operando + oper_2 + "<br>");
+		
+		document.calc.resultado.value = result;
+		console.log("Log");
+		console.warn("warn");
+		console.error("error");
+	}
+</script>
+</html>
+
