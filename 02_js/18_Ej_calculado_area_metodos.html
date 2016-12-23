@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Superficie rectángulo</title>
+	</head>
+	<body>
+		<form name="calc">
+			Lado 1 / Base <input name="lado1" value="0" size="10"
+				maxlength="12" type="text">
+			<br>
+			Lado 2 / Altura<input name="lado2" value="0" size="10"
+				maxlength="12" type="text">
+			<br>
+			Resultado <input name="resultado" size="10" type="text">
+			<br>
+			<input name="" value=" R " onclick="calcula('R')" type="button">
+			<input name="" value=" T " onclick="calcula('T')" type="button">		
+		</form>
+	</body>
+<script>
+
+	var Figura = function(lad_1, lad_2, fig) {
+		this.lado_1 = lad_1;
+		this.lado_2 = lad_2;
+		
+		if (fig == 'R'){
+			this.result = this.lado_1 * this.lado_2;
+		}
+		if (fig == 'T'){
+			this.result = this.lado_1 * this.lado_2 / 2;
+		}
+	}
+
+	function calcula(tipo) {
+		var lad_1 = document.calc.lado1.value;
+		var lad_2 = document.calc.lado2.value;
+		var superficie = new Figura(lad_1, lad_2, tipo);
+		
+		document.calc.resultado.value = superficie.result;
+	}
+</script>
+</html>
+
