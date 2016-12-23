@@ -33,59 +33,94 @@
 		
 		var formCalc = document.createElement("form");
 		body.appendChild(formCalc);
+
+		var salto = document.createElement("br");
+		formCalc.appendChild(salto);
 		
-		var texto = document.createTextNode("Operando X: ");
+		var texto = document.createTextNode("Operando A: ");
 		formCalc.appendChild(texto);
-		
 		var operadorA = document.createElement("input");
 		formCalc.appendChild(operadorA);
-		operadorA.name = "Operador A";
 		operadorA.value = "0";
-		operadorA.setAttribute("size", "12");
+		operadorA.setAttribute("size", "10");
 		
+		salto = document.createElement("br");
+		formCalc.appendChild(salto);
+				
+		var texto = document.createTextNode("Operando B: ");
+		formCalc.appendChild(texto);		
 		var operadorB = document.createElement("input");
 		formCalc.appendChild(operadorB);
+		operadorB.value = "0";
+		operadorB.setAttribute("size", "10");
 
-		var botCalc1 = document.createElement("button");
+		salto = document.createElement("br");
+		formCalc.appendChild(salto);
+		
+		var botCalc1 = document.createElement("input");
+		botCalc1.type = "button";
 		botCalc1.id = "1";
-		var texto = document.createTextNode(" + ");
-		botCalc1.appendChild(texto);
+		botCalc1.value = " + ";
 		formCalc.appendChild(botCalc1);
 		
-		var botCalc2 = document.createElement("button");
+		var botCalc2 = document.createElement("input");
+		botCalc2.type = "button";
 		botCalc2.id = "2";
-		var texto = document.createTextNode(" - ");
-		botCalc2.appendChild(texto);
+		botCalc2.value = " - ";
 		formCalc.appendChild(botCalc2);	
 
-		var botCalc3 = document.createElement("button");
+		var botCalc3 = document.createElement("input");
+		botCalc3.type = "button";
 		botCalc3.id = "3";
-		var texto = document.createTextNode(" * ");
-		botCalc3.appendChild(texto);
+		botCalc3.value = " * ";;
 		formCalc.appendChild(botCalc3);	
 
-		var botCalc4 = document.createElement("button");
+		var botCalc4 = document.createElement("input");
+		botCalc4.type = "button";
 		botCalc4.id = "4";
-		var texto = document.createTextNode(" / ");
-		botCalc4.appendChild(texto);
+		botCalc4.value = " / ";
 		formCalc.appendChild(botCalc4);	
+		
+		salto = document.createElement("br");
+		formCalc.appendChild(salto);
 		
 		var texto = document.createTextNode("Resultado: ");
 		formCalc.appendChild(texto);
-		
 		var result = document.createElement("input");
+		result.setAttribute("size", "15");
 		formCalc.appendChild(result);
 		result.value = "0";
 		
 		var reply_click = function(){
-			alert("Button clicked, id " + this.id + ", text" + this.innerHTML);
-			result.value = operadorA.value + this.innerHTML + operadorB.value;
+			
+			//alert(operadorA.value + operadorB.value + this.value);
+						
+			var calculo = new Calculadora(operadorA.value, operadorB.value, this.value);
+			
+			result.value = calculo.result;
 		}
 		document.getElementById("1").onclick = reply_click;
 		document.getElementById("2").onclick = reply_click;
 		document.getElementById("3").onclick = reply_click;
 		document.getElementById("4").onclick = reply_click;		
-
+	}
+	
+	var Calculadora = function(oper_1, oper_2, operando) {
+		this.operador_1 = oper_1;
+		this.operador_2 = oper_2;
+			
+		if (operando == ' + '){
+			this.result = Number(oper_1) + Number(oper_2);
+		}
+		if (operando == ' - '){
+			this.result = oper_1 - oper_2;
+		}
+		if (operando == ' * '){
+			this.result = oper_1 * oper_2;
+		}
+		if (operando == ' / '){
+			this.result = oper_1 / oper_2;
+		}
 	}
 	
 	function calcula (operando) {

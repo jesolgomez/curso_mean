@@ -17,7 +17,7 @@
 			<input name="" value=" - "
 				onclick="calcula('-') " type="button">
 			<input name="" value=" * "
-				onclick="calcula(  '*'   )" type="button">
+				onclick="calcula('*')" type="button">
 			<input name="" value=" / "
 				onclick="calcula ('/')" type="button">
 			<br>
@@ -27,63 +27,35 @@
 	</body>
 <script>
 
-function operar(primerOper) {
-  this.primerOper = primerOper;
-}
-function operar(segundoOper) {
-  this.segundoOper = segundoOper;
-}
+	var Calculadora = function(oper_1, oper_2, operando) {
+		this.operador_1 = oper_1;
+		this.operador_2 = oper_2;
+				
+		if (operando == '+'){
+			this.result = Number(oper_1) + Number(oper_2);
+		}
+		if (operando == '-'){
+			this.result = oper_1 - oper_2;
+		}
+		if (operando == '*'){
+			this.result = oper_1 * oper_2;
+		}
+		if (operando == '/'){
+			this.result = oper_1 / oper_2;
+		}
 
-operar.prototype.operacion = function() {
-  alert (this.primerOper + "+" + this.segundoOper);
-};
-
-var primerOper = new operar("3");
-var segundoOper = new operar("2");
-var funcionOperar = primerOper.operacion;
-
-
-
-
-
-
-
-
-	var operacion = new Object();
-
-	operancion.sumar = function (oper_1, oper_2) {
-		this[clave] = oper_1 + oper_2;
 	}
-	operancion.restar = function (oper_1, oper_2) {
-		this[clave] = oper_1 - oper_2;
-	}
-	operancion.producto = function (oper_1, oper_2) {
-		this[clave] = oper_1 * oper_2;
-	}
-	operancion.cociente = function (oper_1, oper_2) {
-		this[clave] = oper_1 / oper_2;
-	}	
-	
-	objetoUno["propiedad_1"]="ELEMENTO PROP 1";
-	objetoUno.propiedad_2="ELEMENTO PROP 2";
 
-
-	eval("alert('Resultado op' + calcula('*'))");
-	
-	
-	
-	function calcula (operando) {
+	function calcula(operando) {
 		var oper_1 = document.calc.operando1.value;
 		var oper_2 = document.calc.operando2.value;
 		
-		var result = eval (oper_1 + operando + oper_2);
+		var calculo = new Calculadora(oper_1, oper_2, operando);
+		
+		document.calc.resultado.value = calculo.result;
 		
 		document.getElementById("texto").innerHTML += ("<br>" + oper_1 + operando + oper_2 + "<br>");
-		
-		document.calc.resultado.value = result;
-		console.log("Log");
-		console.warn("warn");
-		console.error("error");
+
 	}
 </script>
 </html>
