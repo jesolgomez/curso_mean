@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Formularios</title>
+</head>
+
+<body>
+    <section>
+        <form name="miformulario" id="miformulario" method="get">
+            Nombre: <input type="text" name="nombre" id="nombre"
+					pattern="[A-Za-z]{4-16}"/><br/>
+			Email: <input type="email" name="email" id="email"
+					placeholder="prueba@prueba.com"/><br/>
+			Color: <input type="color" name="color" id="color" required/><br/>
+			URL: <input type="url" name="url" id="url"/><br/>
+			Edad: <input type="number" name="number" id="number"
+					min="18" max="99" step="2"/><br/>
+			Fecha: <input type="date" name="date" id="date"/><br/>
+			Hora: <input type="time" name="time" id="time"/><br/>
+			Mes: <input type="month" name="month" id="month"/><br/>
+			Semana: <input type="week" name="week" id="week"/><br/>
+			Teléfono: <input type="tel" name="tel" id="tel" required/><br/>
+			Buscar: <input type="search" name="search" id="search"
+					min="0" max="50" step="5"/><br/>
+			Rango: <input type="range" name="range" id="range"/><br/>
+		
+			<input type="submit" value="Enviar"/>
+        </form>
+    </section>
+</body>
+
+</html>
