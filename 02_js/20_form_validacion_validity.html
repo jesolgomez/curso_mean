@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+    <title>Validacion RegExp</title>
+</head>
+
+<body>
+	<header>
+		<h1>Validación formulario con expresiones regulares</h1>
+	</header>
+
+    <section>
+        <form name="miformulario" onsubmit="return validaCampos(this)" method="get">
+			Teléfono: <input type="text" name="tel" size="9" maxlength="9"/><br/>
+            DNI: <input type="text" name="dni" size="9" maxlength="9"/><br/>
+			Texto: <input type="text" name="texto" id="texto"/><br/>
+			Email: <input type="email" name="email" id="email"
+					placeholder="prueba@prueba.com" oninvalid="validacionPersonalizadaEmail(this)"/><br/>					
+			<input type="submit" value="Enviar"/>
+        </form>
+    </section>
+
+	<script>
+	
+	function validacionPersonalizadaEmail(input) {
+            //Si no es valido
+            if (!input.validity.valid) {
+                //Cambiar el mensaje de error a mostrar
+                input.setCustomValidity(document.getElementById("mensaje").value);
+            }
+    }
+
+	function validaCampos(miformulario){
+		
+		var expres_reg_telefono = /^[5-9]\d{8}$/;
+		var expres_reg_dni = /^\d{8}[a-zA-Z]$/;
+		var expres_reg_text = /{1,}/;
+		
+		
+		if (expres_reg_telefono.test(miformulario.tel.value) == false) {
+			alert("Campo de teléfono no válido")
+			return false;
+		} else if (expres_reg_dni.test(miformulario.dni.value) == false) {
+			alert("Campo de DNI no válido")
+			return false;
+		} else if (expres_reg_text.test(miformulario.texto.value) == false) {
+			alert("Campo de texto no válido")
+			return false;
+		} else {
+			//return true;
+		}
+	}		
+		
+	</script>
+</body>
+</html>

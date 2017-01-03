@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+    <title>FormularioCV</title>
+</head>
+
+<body>
+    <section>
+        <form name="formExp" id="formExp" method="get">
+			FORMULARIO CURRICULUM<br/>
+            Empresa: <input type="text" name="empresa" id="empresa"/><br/>
+            Cargo: <input type="text" name="cargo" id="cargo"/><br/>
+			Fecha inicio: <input type="month" name="fechaIni" id="fechaIni"/><br/>
+			Fecha fin: <input type="month" name="fechaFin" id="fechaFin"/><br/>
+			Localización: <input type="text" name="cargo" id="cargo"/>
+			<input type="button" value="Añadir" onclick="añadir()"/><br/>
+			JSON<br/>
+			<input type="textarea" name="experiencia" id="experiencia"/><br/>
+			EXPERIENCIA<input type="button" value="Cargar y mostrar" 
+						onclick="cargarExp()"/><br/>
+        </form>
+    </section>
+</body>
+<script>
+	
+	function cargarExp(){
+		var sAux="";
+		var frm = document.getElementById("formExp");
+		for (i=0;i<5;i++)
+		{
+			sAux += frm.elements[i].name + ": " + frm.elements[i].value;
+		}
+		alert(sAux);
+	}
+	
+	function cargarExp(){
+		document.write();
+	}
+
+
+</script>
+</html>

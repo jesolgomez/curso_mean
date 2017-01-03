@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Multimedia HTML5">
+		<title>Multimedia</title>
+	</head>
+	<body>
+		<section>
+			<article>
+				<button onclick="playVid()" type="button">Play</button>
+				<button onclick="pauseVid()" type="button">Pause</button><br> 
+				<video id="myVideo" width="320" height="176">
+					<source src="http://videos.mozilla.org/firefox/3.5/overview/overview.ogv">
+				</video>
+			</article>
+			<article>
+				<audio controls>
+					<source src="http://www.htmlya.com.ar/html5/simulador/gallo.mp3">
+					<source src="http://www.htmlya.com.ar/html5/simulador/gallo.ogg">
+					<source src="http://www.htmlya.com.ar/html5/simulador/gallo.wav">
+					Su navegador no soporta <code> audio</code>
+				</audio>
+			</article>			
+		</section>
+		
+		<script> 
+			var vid = document.getElementById("myVideo"); 
+			function playVid() {vid.play();} 
+			function pauseVid() {vid.pause();}
+		</script> 
+
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+    <title>Validacion RegExp</title>
+</head>
+
+<body>
+	<header>
+		<h1>Validación formulario con expresiones regulares</h1>
+	</header>
+
+    <section>
+        <form name="miformulario" onsubmit="return validaCampos(this)" method="get">
+			Teléfono: <input type="text" name="tel" size="9" maxlength="9"/><br/>
+            DNI: <input type="text" name="dni" size="9" maxlength="9"/><br/>
+			<input type="submit" value="Enviar"/>
+        </form>
+    </section>
+
+	<script>
+	
+	function validaCampos(miformulario){
+		
+		var expres_reg_telefono = /^[5-9]\d{8}$/;
+		var expres_reg_dni = /^\d{8}[a-zA-Z]$/;
+		
+		if (expres_reg_telefono.test(miformulario.tel.value) == false) {
+			alert("Campo de teléfono no válido")
+			return false;
+		} else	if (expres_reg_dni.test(miformulario.dni.value) == false) {
+			alert("Campo de DNI no válido")
+			return false;
+		} else {
+			//return true;
+		}
+	}		
+		
+	</script>
+</body>
+</html>
