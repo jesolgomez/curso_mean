@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Formularios</title>
+</head>
+
+<body>
+    <section>
+        <form name="miformulario" id="miformulario">
+            Nombre: <input type="text" name="nombre" id="nombre"/>
+			Apellido: <input type="text" name="apellido" id="apellido"/>
+			<input type="button" value="Guardar" onclick="guardar()"/><br/>
+	        
+			Nombre almacenado:
+			<label type="text" id="nombretxt"></label> Apellido almacenado:
+			<label type="text" id="apellidotxt"></label>
+			<input type="button" value="Cargar elementos"  onclick="cargar()"/>
+        </form>
+    </section>
+</body>
+
+<script>
+
+var frm = document.getElementById("miformulario");
+
+function guardar(){
+	localStorage.setItem(frm.elements[0].name, frm.elements[0].value)
+	localStorage.setItem(frm.elements[1].name, frm.elements[1].value)
+	document.getElementById("nombre").value = "";
+	document.getElementById("apellido").value = "";
+}
+function cargar(){
+	var nombre = localStorage.getItem(frm.elements[0].name);
+	var apellido = localStorage.getItem(frm.elements[1].name);
+	document.getElementById("nombretxt").innerHTML = nombre;
+	document.getElementById("apellidotxt").innerHTML = apellido;
+}
+
+</script>
+</html>
