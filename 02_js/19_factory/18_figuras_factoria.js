@@ -1,10 +1,8 @@
 function FactoriaFiguras() {}
-
 FactoriaFiguras.prototype.vistaFigura = FiguraVista;
 FactoriaFiguras.prototype.modeloFigura = Modelo.Rectangulo;
-
-FactoriaFiguras.prototype.crearControlFigura = function(opciones) {
-
+// opciones.tipoVista, tipoFigura
+FactoriaFiguras.prototype.crearFigura = function(opciones) {
     switch (opciones.tipoVista) {
         case "v2":
             this.vistaFigura = FiguraVistaV2;
@@ -13,19 +11,21 @@ FactoriaFiguras.prototype.crearControlFigura = function(opciones) {
             this.vistaFigura = FiguraVista;
             break;
     }
-    var nuevaVista = new this.vistaFigura(opciones.padreDOM, opciones.tipoFigura);
-
+    var padreDOM = document.getElementById(opciones.idPadreDom);
+    var nuevaVista = new this.vistaFigura(padreDOM, opciones.tipoFigura);
     switch (opciones.tipoFigura) {
         case "rectangulo":
             this.modeloFigura = Modelo.Rectangulo;
             break;
         case "triangulo":
-            this.modeloFigura = Modelo.Rectangulo;
+            this.modeloFigura = Modelo.TrianguloEquilatero;
             break;
         case "elipse":
             this.modeloFigura = Modelo.Elipse;
             break;
-            // por defecto es de tipo Rectangulo
+        case "huevo":
+            this.modeloFigura = Modelo.Huevo;
+            break;
     }
     return new FiguraControlador(nuevaVista, this.modeloFigura);
 }
